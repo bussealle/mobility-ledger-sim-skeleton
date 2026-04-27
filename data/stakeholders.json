@@ -1,0 +1,302 @@
+[
+  {
+    "id": "STK01",
+    "name": "完成車メーカー(OEM)",
+    "description": "車両仕様・保証・製造責任の起点",
+    "layer": "L6"
+  },
+  {
+    "id": "STK02",
+    "name": "キャプティブファイナンス",
+    "description": "OEM系金融会社・販売金融・リース・残価設定",
+    "layer": "L6"
+  },
+  {
+    "id": "STK03",
+    "name": "ディーラー・販売代理店",
+    "description": "正規ディーラー・販売店",
+    "layer": "L2"
+  },
+  {
+    "id": "STK04",
+    "name": "中古車販売店",
+    "description": "中古車小売・買取",
+    "layer": "L4"
+  },
+  {
+    "id": "STK05",
+    "name": "リース会社",
+    "description": "キャプティブ以外のリース",
+    "layer": "L6"
+  },
+  {
+    "id": "STK06",
+    "name": "レンタル・カーシェア事業者",
+    "description": "レンタカー・カーシェア運営",
+    "layer": "L4"
+  },
+  {
+    "id": "STK07",
+    "name": "フリート運営者",
+    "description": "法人フリート運営・配送・タクシー",
+    "layer": "L4"
+  },
+  {
+    "id": "STK08",
+    "name": "個人保有者・運転者",
+    "description": "個人による保有・利用",
+    "layer": "L6"
+  },
+  {
+    "id": "STK09",
+    "name": "法人利用者",
+    "description": "法人・社用車利用部門",
+    "layer": "L6"
+  },
+  {
+    "id": "STK10",
+    "name": "銀行・ノンバンク",
+    "description": "提携・第三者の貸し手",
+    "layer": "L1"
+  },
+  {
+    "id": "STK11",
+    "name": "保険会社",
+    "description": "損害保険引受・保険金支払",
+    "layer": "L6"
+  },
+  {
+    "id": "STK12",
+    "name": "保険代理店・ブローカー",
+    "description": "保険販売・媒介",
+    "layer": "L1"
+  },
+  {
+    "id": "STK13",
+    "name": "整備工場・認証工場",
+    "description": "定期整備・修理",
+    "layer": "L2"
+  },
+  {
+    "id": "STK14",
+    "name": "板金塗装・事故修理業者",
+    "description": "事故車修理・損害査定支援",
+    "layer": "L3"
+  },
+  {
+    "id": "STK15",
+    "name": "車検・検査機関",
+    "description": "検査機関・車検場",
+    "layer": "L5"
+  },
+  {
+    "id": "STK16",
+    "name": "ロードサービス・レッカー",
+    "description": "故障時搬送・救援",
+    "layer": "L3"
+  },
+  {
+    "id": "STK17",
+    "name": "部品サプライヤ",
+    "description": "純正・補給部品供給",
+    "layer": "L2"
+  },
+  {
+    "id": "STK18",
+    "name": "バッテリー診断・交換・再利用事業者",
+    "description": "EVバッテリーSoH測定・交換・再利用",
+    "layer": "L2"
+  },
+  {
+    "id": "STK19",
+    "name": "通信・テレマティクス事業者",
+    "description": "通信回線・車両データ取得",
+    "layer": "L2"
+  },
+  {
+    "id": "STK20",
+    "name": "ソフトウェア・OTA配信事業者",
+    "description": "車載ソフトウェア配信",
+    "layer": "L2"
+  },
+  {
+    "id": "STK21",
+    "name": "車両登録機関",
+    "description": "陸運局・各国登録当局",
+    "layer": "L5"
+  },
+  {
+    "id": "STK22",
+    "name": "税務・関税当局",
+    "description": "自動車税・重量税・関税",
+    "layer": "L6"
+  },
+  {
+    "id": "STK23",
+    "name": "警察・法執行機関",
+    "description": "違反取締・事故処理",
+    "layer": "L5"
+  },
+  {
+    "id": "STK24",
+    "name": "駐車場・通行料金事業者",
+    "description": "駐車場・有料道路運営",
+    "layer": "L1"
+  },
+  {
+    "id": "STK25",
+    "name": "燃料・充電事業者",
+    "description": "ガソリンスタンド・充電網",
+    "layer": "L2"
+  },
+  {
+    "id": "STK26",
+    "name": "中古車オークション運営者",
+    "description": "業者間オークション運営",
+    "layer": "L4"
+  },
+  {
+    "id": "STK27",
+    "name": "査定士・車両検査会社",
+    "description": "状態評価・残価評定の中立的確認者",
+    "layer": "L5"
+  },
+  {
+    "id": "STK28",
+    "name": "仲介業者・マーケットプレイス",
+    "description": "C2C・C2B等の仲介",
+    "layer": "L4"
+  },
+  {
+    "id": "STK29",
+    "name": "車両陸送・物流",
+    "description": "車両運搬・船積み",
+    "layer": "L4"
+  },
+  {
+    "id": "STK30",
+    "name": "輸出業者",
+    "description": "中古車輸出",
+    "layer": "L6"
+  },
+  {
+    "id": "STK31",
+    "name": "輸入業者",
+    "description": "輸入通関・流通",
+    "layer": "L4"
+  },
+  {
+    "id": "STK32",
+    "name": "税関",
+    "description": "通関手続",
+    "layer": "L5"
+  },
+  {
+    "id": "STK33",
+    "name": "海外登録機関",
+    "description": "輸出先国の登録当局",
+    "layer": "L5"
+  },
+  {
+    "id": "STK34",
+    "name": "海外販売店・現地再販業者",
+    "description": "輸出先国の販売・再販",
+    "layer": "L4"
+  },
+  {
+    "id": "STK35",
+    "name": "再生整備・リファービッシュ事業者",
+    "description": "中古車再整備・再販準備",
+    "layer": "L2"
+  },
+  {
+    "id": "STK36",
+    "name": "解体・スクラップ事業者",
+    "description": "解体・廃車処理",
+    "layer": "L3"
+  },
+  {
+    "id": "STK37",
+    "name": "資源回収・再資源化事業者",
+    "description": "素材・部品の再資源化",
+    "layer": "L3"
+  },
+  {
+    "id": "STK38",
+    "name": "SPV・ファンド・アセット保有主体",
+    "description": "証券化のための導管・特別目的会社",
+    "layer": "L1"
+  },
+  {
+    "id": "STK39",
+    "name": "ABS投資家",
+    "description": "債権・証券化商品の投資家",
+    "layer": "L6"
+  },
+  {
+    "id": "STK40",
+    "name": "サービサー・アセットマネージャ",
+    "description": "債権回収管理・原資産管理",
+    "layer": "L1"
+  },
+  {
+    "id": "STK41",
+    "name": "雇用主・人事",
+    "description": "福利厚生・社用車提供主体",
+    "layer": "L4"
+  },
+  {
+    "id": "STK42",
+    "name": "自治体・公的フリート保有者",
+    "description": "公用車・行政車両保有者",
+    "layer": "L4"
+  },
+  {
+    "id": "STK43",
+    "name": "配車・配送プラットフォーム",
+    "description": "ライドシェア・宅配プラットフォーム",
+    "layer": "L1"
+  },
+  {
+    "id": "STK44",
+    "name": "債権回収業者",
+    "description": "回収・引揚実行",
+    "layer": "L4"
+  },
+  {
+    "id": "STK45",
+    "name": "事故車オークション・サルベージバイヤー",
+    "description": "サルベージ流通",
+    "layer": "L3"
+  },
+  {
+    "id": "STK46",
+    "name": "二次利用エネルギー事業者",
+    "description": "蓄電・定置用途の二次利用",
+    "layer": "L2"
+  },
+  {
+    "id": "STK47",
+    "name": "履歴情報・車歴データ提供者",
+    "description": "車歴データベース・履歴提供",
+    "layer": "L2"
+  },
+  {
+    "id": "STK48",
+    "name": "残価保証・再保険提供者",
+    "description": "残価保証商品・再保険を提供する専門事業者",
+    "layer": "L1"
+  },
+  {
+    "id": "STK49",
+    "name": "フリート管理SaaS・モビリティオーケストレーター",
+    "description": "車両稼働最適化・統合管理プラットフォーム",
+    "layer": "L1"
+  },
+  {
+    "id": "STK50",
+    "name": "法務・回収弁護士",
+    "description": "債権整理・訴訟・差押え等の法的回収",
+    "layer": "L1"
+  }
+]

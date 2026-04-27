@@ -1,0 +1,76 @@
+{
+  "phases": [
+    {
+      "id": "Production",
+      "name": "製造中",
+      "description": "工場での製造ライン上",
+      "transitions_to": ["Distribution"],
+      "typical_duration_days": [1, 30]
+    },
+    {
+      "id": "Distribution",
+      "name": "流通中",
+      "description": "工場から販社・ディーラーへの輸送",
+      "transitions_to": ["Inventory"],
+      "typical_duration_days": [3, 60]
+    },
+    {
+      "id": "Inventory",
+      "name": "在庫",
+      "description": "ディーラーヤード・販売店在庫",
+      "transitions_to": ["Origination"],
+      "typical_duration_days": [7, 365]
+    },
+    {
+      "id": "Origination",
+      "name": "与信〜納車",
+      "description": "顧客成約から登録・納車まで",
+      "transitions_to": ["In_Use"],
+      "typical_duration_days": [3, 60]
+    },
+    {
+      "id": "In_Use",
+      "name": "使用中",
+      "description": "顧客が使用している期間。最長期間",
+      "transitions_to": ["Post_Contract", "Used_Market", "Cross_Border", "EOL"],
+      "typical_duration_days": [365, 5475]
+    },
+    {
+      "id": "Post_Contract",
+      "name": "契約満了後",
+      "description": "リース満了・残債完済後の状態",
+      "transitions_to": ["Used_Market", "In_Use", "Cross_Border", "EOL"],
+      "typical_duration_days": [1, 90]
+    },
+    {
+      "id": "Used_Market",
+      "name": "中古市場",
+      "description": "中古車として流通している期間",
+      "transitions_to": ["In_Use", "Cross_Border", "EOL", "Late_Life"],
+      "typical_duration_days": [7, 365]
+    },
+    {
+      "id": "Cross_Border",
+      "name": "越境",
+      "description": "輸出手続〜輸入先での流通",
+      "transitions_to": ["In_Use", "Late_Life", "EOL", "Cross_Border"],
+      "typical_duration_days": [30, 1825]
+    },
+    {
+      "id": "Late_Life",
+      "name": "晩期",
+      "description": "減価が進み廃車が視野に入る時期",
+      "transitions_to": ["EOL", "Used_Market", "Cross_Border"],
+      "typical_duration_days": [180, 1825]
+    },
+    {
+      "id": "EOL",
+      "name": "廃車",
+      "description": "End of Life。解体・スクラップ・素材化",
+      "transitions_to": [],
+      "typical_duration_days": [7, 90],
+      "terminal": true
+    }
+  ],
+  "starting_phase": "Production"
+}

@@ -1,0 +1,7027 @@
+[
+  {
+    "id": "EV001",
+    "name": "完成車製造",
+    "name_en": "",
+    "phase_label": "0〜0.5年",
+    "category": "製造",
+    "description": "工場でのライン完了・最終組立完了",
+    "timing_hint": "工場ライン完了時点",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Production"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK29",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV002",
+    "name": "工場品質検査",
+    "name_en": "",
+    "phase_label": "0〜0.5年",
+    "category": "製造",
+    "description": "出荷前の品質検査と適合確認",
+    "timing_hint": "工場出荷直前",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Production"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK15",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV003",
+    "name": "全国販社向け出荷",
+    "name_en": "",
+    "phase_label": "0〜0.5年",
+    "category": "流通",
+    "description": "工場から販売会社拠点への輸送",
+    "timing_hint": "工場出荷後",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Distribution"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "受益",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK29",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV004",
+    "name": "ディーラー在庫到着",
+    "name_en": "",
+    "phase_label": "0〜0.5年",
+    "category": "小売",
+    "description": "販売店ヤードへの入庫",
+    "timing_hint": "店舗到着時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK03",
+        "role": "対象",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK29",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV005",
+    "name": "顧客リード獲得",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "小売",
+    "description": "見込客情報の発生・登録",
+    "timing_hint": "需要発生時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV006",
+    "name": "試乗",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "小売",
+    "description": "顧客の試乗体験",
+    "timing_hint": "成約前",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {},
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV007",
+    "name": "ファイナンス申込",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "ローン・リース・サブスクの申込書提出",
+    "timing_hint": "成約交渉中",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK10",
+        "role": "実行",
+        "layer": "L1"
+      }
+    ]
+  },
+  {
+    "id": "EV008",
+    "name": "与信審査",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "信用調査と融資可否判定",
+    "timing_hint": "申込直後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK10",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV009",
+    "name": "保険見積",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "保険料試算と提案",
+    "timing_hint": "成約前後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK11",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK12",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV010",
+    "name": "契約締結",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "売買・リース契約の締結",
+    "timing_hint": "成約時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK05",
+        "role": "実行",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV011",
+    "name": "頭金決済",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "頭金・初回金の入金",
+    "timing_hint": "契約直後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "cascade",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK10",
+        "role": "受益",
+        "layer": "L1"
+      }
+    ]
+  },
+  {
+    "id": "EV012",
+    "name": "新規登録",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "登録",
+    "description": "国・地域の車両登録",
+    "timing_hint": "納車前後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "cascade",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Used_Market",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "実行",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV013",
+    "name": "車両引渡し",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "納車",
+    "description": "顧客への物理的引渡し",
+    "timing_hint": "登録完了後",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "cascade",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV014",
+    "name": "個人使用開始",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "使用",
+    "description": "個人購入者の日常使用開始",
+    "timing_hint": "納車直後",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK08",
+        "role": "実行",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV015",
+    "name": "法人配車開始",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "使用",
+    "description": "法人内での配車・社用利用開始",
+    "timing_hint": "納車直後",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK09",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK41",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV016",
+    "name": "商用フリート配備",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "使用",
+    "description": "配送・タクシー等への投入",
+    "timing_hint": "納車直後",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK07",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "実行",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV017",
+    "name": "レンタルフリート配備",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "使用",
+    "description": "レンタカー・カーシェアへの投入",
+    "timing_hint": "納車直後",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK06",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV018",
+    "name": "給油・充電パターン確立",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "運行",
+    "description": "運行データから利用パターンが安定",
+    "timing_hint": "稼働開始数ヶ月後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK25",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "確認",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "実行",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV019",
+    "name": "定期メンテナンス",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "整備",
+    "description": "メーカー指定の定期点検・交換",
+    "timing_hint": "走行距離・期間に応じ",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "time",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ],
+    "period_days": 365
+  },
+  {
+    "id": "EV020",
+    "name": "保証クレーム",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "規制",
+    "description": "保証期間内の不具合修理請求",
+    "timing_hint": "不具合発生時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV021",
+    "name": "リコール通知・改修",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "規制",
+    "description": "メーカーリコールに伴う対応",
+    "timing_hint": "リコール発令時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ],
+    "probability_per_year": 0.05
+  },
+  {
+    "id": "EV022",
+    "name": "コネクテッドサービス開通",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "データ",
+    "description": "通信・テレマティクスサービスの有効化",
+    "timing_hint": "納車後初期",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK19",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV023",
+    "name": "OTAソフトウェア更新",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "データ",
+    "description": "車載ソフトの遠隔更新",
+    "timing_hint": "随時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK20",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV024",
+    "name": "走行データ生成",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "データ",
+    "description": "テレマティクス由来の走行・健康データ",
+    "timing_hint": "走行に伴い継続",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK19",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK11",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK47",
+        "role": "受益",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV025",
+    "name": "軽微事故",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "事故・違反",
+    "description": "軽微な物損・接触事故",
+    "timing_hint": "事故発生時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK11",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK14",
+        "role": "実行",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK23",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ],
+    "probability_per_year": 0.08
+  },
+  {
+    "id": "EV026",
+    "name": "重大事故",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "事故・違反",
+    "description": "人身・大破級の事故",
+    "timing_hint": "事故発生時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK11",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK14",
+        "role": "実行",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK23",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK16",
+        "role": "実行",
+        "layer": "L3"
+      }
+    ],
+    "probability_per_year": 0.015
+  },
+  {
+    "id": "EV027",
+    "name": "盗難・破壊",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "事故・違反",
+    "description": "車両盗難・破壊行為",
+    "timing_hint": "発生時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK23",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK11",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ],
+    "probability_per_year": 0.005
+  },
+  {
+    "id": "EV028",
+    "name": "タイヤ交換",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "整備",
+    "description": "タイヤの定期・摩耗交換",
+    "timing_hint": "走行距離・経年に応じ",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV029",
+    "name": "バッテリー健全性点検",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "整備",
+    "description": "始動用・駆動用バッテリーの状態確認",
+    "timing_hint": "定期点検時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK18",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV030",
+    "name": "定期検査・車検",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "規制",
+    "description": "車検・公的検査の実施",
+    "timing_hint": "車検サイクル",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "time",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK15",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ],
+    "period_days": 730
+  },
+  {
+    "id": "EV031",
+    "name": "月次割賦支払",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "ローン・リース料の毎月支払",
+    "timing_hint": "毎月",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "time",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK10",
+        "role": "受益",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK40",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ],
+    "period_days": 30
+  },
+  {
+    "id": "EV032",
+    "name": "支払遅延",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "支払遅延の発生",
+    "timing_hint": "延滞時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK40",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ],
+    "probability_per_year": 0.04
+  },
+  {
+    "id": "EV033",
+    "name": "引揚・任意返却",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "債務不履行に伴う引揚または任意返却",
+    "timing_hint": "延滞長期化時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK44",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ]
+  },
+  {
+    "id": "EV034",
+    "name": "走行距離契約上限超過",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "使用",
+    "description": "リース・サブスク契約の走行距離超過",
+    "timing_hint": "経年で発生",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": true,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "financial_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "確認",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV035",
+    "name": "用途変更",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "使用",
+    "description": "個人→法人/レンタル等の用途変更",
+    "timing_hint": "随時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK11",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV036",
+    "name": "地域転居",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "使用",
+    "description": "登録地・主たる使用地の変更",
+    "timing_hint": "転居時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV037",
+    "name": "保険更新",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "保険",
+    "description": "保険契約の年次更新",
+    "timing_hint": "年次",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "time",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK11",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK12",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ],
+    "period_days": 365
+  },
+  {
+    "id": "EV038",
+    "name": "保険金支払",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "保険",
+    "description": "事故保険金等の精算",
+    "timing_hint": "事故処理完了時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "financial_change": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK11",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK14",
+        "role": "確認",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ],
+    "probability_per_year": 0.05
+  },
+  {
+    "id": "EV039",
+    "name": "下取り査定提示",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "小売",
+    "description": "既存車両の下取り査定額提示",
+    "timing_hint": "買換え検討時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Used_Market",
+        "In_Use"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV040",
+    "name": "早期買換え",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "小売",
+    "description": "契約期間途中での買換え",
+    "timing_hint": "残価次第",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Used_Market",
+        "In_Use"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV041",
+    "name": "フリート再配置",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "使用",
+    "description": "フリート内での車両の再配分",
+    "timing_hint": "運用最適化時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK07",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "実行",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV042",
+    "name": "レンタル除却",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "使用",
+    "description": "レンタル稼働終了による除却",
+    "timing_hint": "稼働サイクル満了時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK06",
+        "role": "起点",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK26",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV043",
+    "name": "リース返却前点検",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "小売",
+    "description": "返却車両の事前査定",
+    "timing_hint": "リース満了直前",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Used_Market",
+        "In_Use"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK05",
+        "role": "起点",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV044",
+    "name": "リース・サブスク返却",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "小売",
+    "description": "契約満了による物理返却",
+    "timing_hint": "契約満了時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Used_Market",
+        "In_Use"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK05",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV045",
+    "name": "オフリース整備",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "小売",
+    "description": "返却車の販売準備整備",
+    "timing_hint": "返却後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Used_Market",
+        "In_Use"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK35",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV046",
+    "name": "認定中古車登録",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "小売",
+    "description": "認定中古車プログラム入庫",
+    "timing_hint": "整備完了後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Used_Market",
+        "In_Use"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "確認",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV047",
+    "name": "オークション出品",
+    "name_en": "",
+    "phase_label": "2〜6年",
+    "category": "市場",
+    "description": "中古車オークションへの出品",
+    "timing_hint": "在庫処分時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK26",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "起点",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV048",
+    "name": "オークション入庫検査",
+    "name_en": "",
+    "phase_label": "2〜6年",
+    "category": "市場",
+    "description": "出品時の状態評価",
+    "timing_hint": "出品時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK26",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV049",
+    "name": "オークション落札",
+    "name_en": "",
+    "phase_label": "2〜6年",
+    "category": "市場",
+    "description": "入札による落札",
+    "timing_hint": "オークション開催時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK26",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "受益",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK28",
+        "role": "受益",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK30",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV050",
+    "name": "卸売移転",
+    "name_en": "",
+    "phase_label": "2〜6年",
+    "category": "市場",
+    "description": "業者間卸売",
+    "timing_hint": "業販時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK28",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV051",
+    "name": "中古小売販売",
+    "name_en": "",
+    "phase_label": "2〜6年",
+    "category": "市場",
+    "description": "中古車小売",
+    "timing_hint": "店舗成約時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK28",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV052",
+    "name": "所有権移転登録",
+    "name_en": "",
+    "phase_label": "2〜6年",
+    "category": "登録",
+    "description": "中古売買に伴う名義変更",
+    "timing_hint": "売買成立時",
+    "state_changes": {
+      "所有": true,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "cascade",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Used_Market",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV053",
+    "name": "中古車ローン組成",
+    "name_en": "",
+    "phase_label": "2〜6年",
+    "category": "金融",
+    "description": "中古車購入のためのローン組成",
+    "timing_hint": "売買時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK10",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV054",
+    "name": "リース満了買取",
+    "name_en": "",
+    "phase_label": "2〜6年",
+    "category": "市場",
+    "description": "現リース利用者による買取",
+    "timing_hint": "満了時の選択",
+    "state_changes": {
+      "所有": true,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK05",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV055",
+    "name": "高走行商用運行",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "運行",
+    "description": "高走行距離での商用運行",
+    "timing_hint": "商用稼働中",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK07",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "確認",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV056",
+    "name": "配車・配送プラットフォーム運用",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "運行",
+    "description": "ライドシェア・宅配での運用",
+    "timing_hint": "稼働中",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK43",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK07",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "実行",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV057",
+    "name": "主要部品交換",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "整備",
+    "description": "重要部品の交換",
+    "timing_hint": "経年劣化時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV058",
+    "name": "エンジン・駆動系修理",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "整備",
+    "description": "重整備",
+    "timing_hint": "重故障時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV059",
+    "name": "EV電池モジュール交換",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "整備",
+    "description": "EVバッテリーモジュール単位の交換",
+    "timing_hint": "SoH低下時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK18",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "確認",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV060",
+    "name": "検査不適合・是正",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "規制",
+    "description": "車検・検査不適合とその是正",
+    "timing_hint": "検査時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK15",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV061",
+    "name": "価格再評価",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "市場",
+    "description": "残価・市場価格の再評価",
+    "timing_hint": "市況変動時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK26",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV062",
+    "name": "全損宣言",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "市場",
+    "description": "経済的全損の宣言",
+    "timing_hint": "重大損傷時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "financial_change": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK11",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK14",
+        "role": "確認",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK45",
+        "role": "受益",
+        "layer": "L3"
+      }
+    ],
+    "probability_per_year": 0.01
+  },
+  {
+    "id": "EV063",
+    "name": "廃車オークション売却",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "市場",
+    "description": "サルベージ市場での売却",
+    "timing_hint": "全損後",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK45",
+        "role": "実行",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK11",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK26",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV064",
+    "name": "修復再販",
+    "name_en": "",
+    "phase_label": "3〜8年",
+    "category": "小売",
+    "description": "事故車修復後の再販",
+    "timing_hint": "修復完了時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Used_Market",
+        "In_Use"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK35",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK14",
+        "role": "実行",
+        "layer": "L3"
+      }
+    ]
+  },
+  {
+    "id": "EV065",
+    "name": "輸出業者買取",
+    "name_en": "",
+    "phase_label": "4〜10年",
+    "category": "輸出",
+    "description": "輸出業者による買取",
+    "timing_hint": "国内市場退出時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK30",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK28",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV066",
+    "name": "輸出前検査・洗浄",
+    "name_en": "",
+    "phase_label": "4〜10年",
+    "category": "輸出",
+    "description": "海外仕向け前の検査・洗浄",
+    "timing_hint": "出港前",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK30",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK15",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ]
+  },
+  {
+    "id": "EV067",
+    "name": "輸出通関",
+    "name_en": "",
+    "phase_label": "4〜10年",
+    "category": "輸出",
+    "description": "輸出通関・抹消手続",
+    "timing_hint": "出港時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK32",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK30",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ]
+  },
+  {
+    "id": "EV068",
+    "name": "海上輸送",
+    "name_en": "",
+    "phase_label": "4〜10年",
+    "category": "輸出",
+    "description": "船舶による国際輸送",
+    "timing_hint": "輸送中",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK29",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK30",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV069",
+    "name": "輸入通関",
+    "name_en": "",
+    "phase_label": "4〜10年",
+    "category": "輸入",
+    "description": "輸入先での通関",
+    "timing_hint": "到着時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK32",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK31",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV070",
+    "name": "海外登録",
+    "name_en": "",
+    "phase_label": "4〜10年",
+    "category": "輸入",
+    "description": "輸入先国での新規登録",
+    "timing_hint": "通関後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK33",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK31",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK34",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV071",
+    "name": "海外小売販売",
+    "name_en": "",
+    "phase_label": "4〜10年",
+    "category": "輸入",
+    "description": "輸入先国での小売販売",
+    "timing_hint": "現地販売時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK34",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK31",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV072",
+    "name": "海外長期使用",
+    "name_en": "",
+    "phase_label": "4〜12年",
+    "category": "使用",
+    "description": "輸出先国での長期使用",
+    "timing_hint": "輸出先運用中",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK34",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV073",
+    "name": "第三国再輸出",
+    "name_en": "",
+    "phase_label": "4〜12年",
+    "category": "市場",
+    "description": "輸出先からさらに別国への再輸出",
+    "timing_hint": "再輸出時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK34",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK30",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK32",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK33",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ]
+  },
+  {
+    "id": "EV074",
+    "name": "海外現地リファービッシュ",
+    "name_en": "",
+    "phase_label": "4〜12年",
+    "category": "整備",
+    "description": "輸出先での再整備",
+    "timing_hint": "現地整備時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK35",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK34",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV075",
+    "name": "公的フリート再配置",
+    "name_en": "",
+    "phase_label": "4〜12年",
+    "category": "運行",
+    "description": "公用車・公的フリート間の移管",
+    "timing_hint": "公的需要に応じ",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK42",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK07",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV076",
+    "name": "家族間譲渡・相続",
+    "name_en": "",
+    "phase_label": "5〜12年",
+    "category": "使用",
+    "description": "家族・親族間の名義移転",
+    "timing_hint": "ライフイベント時",
+    "state_changes": {
+      "所有": true,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV077",
+    "name": "福利厚生車両再配置",
+    "name_en": "",
+    "phase_label": "5〜12年",
+    "category": "使用",
+    "description": "福利厚生プログラム内での再配分",
+    "timing_hint": "随時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK41",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "実行",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV078",
+    "name": "一時休車・保管",
+    "name_en": "",
+    "phase_label": "5〜12年",
+    "category": "運行",
+    "description": "登録維持下での休車",
+    "timing_hint": "需要低下時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV079",
+    "name": "休車後再稼働",
+    "name_en": "",
+    "phase_label": "5〜12年",
+    "category": "運行",
+    "description": "休車からの稼働再開",
+    "timing_hint": "需要回復時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK15",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ]
+  },
+  {
+    "id": "EV080",
+    "name": "廉価国内セグメント販売",
+    "name_en": "",
+    "phase_label": "6〜12年",
+    "category": "市場",
+    "description": "下位価格帯での国内販売",
+    "timing_hint": "残存価値低下後",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK28",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV081",
+    "name": "サブプライム金融",
+    "name_en": "",
+    "phase_label": "6〜12年",
+    "category": "市場",
+    "description": "信用度の低い借り手向け中古ローン",
+    "timing_hint": "中古販売時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK10",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV082",
+    "name": "部品取り解体",
+    "name_en": "",
+    "phase_label": "6〜12年",
+    "category": "整備",
+    "description": "部品回収目的の解体",
+    "timing_hint": "再販価値喪失後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK36",
+        "role": "実行",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK17",
+        "role": "受益",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV083",
+    "name": "引揚後再販",
+    "name_en": "",
+    "phase_label": "6〜12年",
+    "category": "市場",
+    "description": "引揚後の中古再販",
+    "timing_hint": "回収後",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK44",
+        "role": "起点",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV084",
+    "name": "排ガス・規制による使用制限",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "規制",
+    "description": "環境規制等による使用制限",
+    "timing_hint": "規制発令時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "起点",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK22",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV085",
+    "name": "強制廃車・抹消登録",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "規制",
+    "description": "規制等による強制廃車",
+    "timing_hint": "規制発令時",
+    "state_changes": {
+      "所有": true,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "regulatory_change": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "実行",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK22",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV086",
+    "name": "廃車判定",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "廃車・循環",
+    "description": "廃車判定の確定",
+    "timing_hint": "経済価値喪失時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "EOL",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK36",
+        "role": "実行",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV087",
+    "name": "解体作業",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "廃車・循環",
+    "description": "車両の物理的解体",
+    "timing_hint": "廃車決定後",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "EOL",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "condition_change": true,
+      "value_revaluation": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK36",
+        "role": "実行",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ]
+  },
+  {
+    "id": "EV088",
+    "name": "スクラップ売却",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "廃車・循環",
+    "description": "金属屑等としての売却",
+    "timing_hint": "解体後",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "EOL",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "value_revaluation": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK36",
+        "role": "実行",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK37",
+        "role": "受益",
+        "layer": "L3"
+      }
+    ]
+  },
+  {
+    "id": "EV089",
+    "name": "素材リサイクル",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "廃車・循環",
+    "description": "素材単位での再資源化",
+    "timing_hint": "スクラップ後",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "EOL",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "regulatory_change": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK37",
+        "role": "実行",
+        "layer": "L3"
+      }
+    ]
+  },
+  {
+    "id": "EV090",
+    "name": "二次利用バッテリー評価",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "廃車・循環",
+    "description": "EVバッテリー二次利用適性の評価",
+    "timing_hint": "解体・回収時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "EOL",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK18",
+        "role": "確認",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK46",
+        "role": "受益",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV091",
+    "name": "二次利用バッテリー設置",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "廃車・循環",
+    "description": "蓄電用途等への設置",
+    "timing_hint": "二次利用判定後",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "EOL",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK46",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV092",
+    "name": "バッテリーリサイクル",
+    "name_en": "",
+    "phase_label": "7〜15年",
+    "category": "廃車・循環",
+    "description": "バッテリー素材リサイクル",
+    "timing_hint": "二次利用不適時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "EOL",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK37",
+        "role": "実行",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK18",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV093",
+    "name": "交通違反・反則",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "事故・違反",
+    "description": "違反検挙・反則金",
+    "timing_hint": "違反発生時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK23",
+        "role": "起点",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK22",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK47",
+        "role": "確認",
+        "layer": "L2"
+      }
+    ],
+    "probability_per_year": 0.2
+  },
+  {
+    "id": "EV094",
+    "name": "抵当権設定・抹消",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "規制",
+    "description": "車両への担保権の設定または抹消",
+    "timing_hint": "金融取引時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "cascade",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "実行",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK10",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK38",
+        "role": "実行",
+        "layer": "L1"
+      }
+    ]
+  },
+  {
+    "id": "EV095",
+    "name": "車両履歴記録更新",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "市場",
+    "description": "車歴データベースへの履歴追記",
+    "timing_hint": "ライフサイクル各点",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "cascade",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK47",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV096",
+    "name": "マーケットプレイス出品・問合せ",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "市場",
+    "description": "オンライン出品・問合せ",
+    "timing_hint": "売却検討時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK28",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "実行",
+        "layer": "L4"
+      }
+    ]
+  },
+  {
+    "id": "EV097",
+    "name": "駐車・通行料金累積",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "運行",
+    "description": "ETC・駐車場利用料金の発生",
+    "timing_hint": "利用に伴い随時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "time",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK24",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ],
+    "period_days": 7
+  },
+  {
+    "id": "EV098",
+    "name": "越境一時使用",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "運行",
+    "description": "越境一時通行・国際運行許可",
+    "timing_hint": "越境利用時",
+    "state_changes": {
+      "所有": false,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "possession_change": true,
+      "regulatory_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK32",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV099",
+    "name": "走行距離改竄紛争・検証",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "規制",
+    "description": "メーター戻し疑義の検証",
+    "timing_hint": "疑義発生時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK15",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK47",
+        "role": "確認",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK23",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ]
+  },
+  {
+    "id": "EV100",
+    "name": "寄贈・NGO再配備",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "市場",
+    "description": "寄贈・NGO等への再配備",
+    "timing_hint": "随時",
+    "state_changes": {
+      "所有": true,
+      "占有": true,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Used_Market",
+        "Late_Life",
+        "Cross_Border"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "ownership_change": true,
+      "possession_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK42",
+        "role": "受益",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV101",
+    "name": "顧客発注確定",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "小売",
+    "description": "顧客の発注確定・仕様凍結",
+    "timing_hint": "成約直後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Inventory",
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "確認",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV102",
+    "name": "VIN・車台番号採番",
+    "name_en": "",
+    "phase_label": "0〜0.5年",
+    "category": "製造",
+    "description": "個体識別番号の採番・登録",
+    "timing_hint": "製造時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Production"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK47",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV103",
+    "name": "納車前点検(PDI)",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "納車",
+    "description": "ディーラーによる納車前最終点検",
+    "timing_hint": "納車直前",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "確認",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV104",
+    "name": "初回付保",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "保険",
+    "description": "新車納車時の保険締結・効力発生",
+    "timing_hint": "納車時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK11",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK12",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV105",
+    "name": "残価設定",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "リース・残価設定ローンの残価確定",
+    "timing_hint": "契約締結時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "確認",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV106",
+    "name": "証券化プール組成・ABS発行",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "金融",
+    "description": "オートローン・リース債権の証券化",
+    "timing_hint": "原資産集積後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK38",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK40",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK39",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK10",
+        "role": "実行",
+        "layer": "L1"
+      }
+    ]
+  },
+  {
+    "id": "EV107",
+    "name": "投資家への元本償還",
+    "name_en": "",
+    "phase_label": "1〜12年",
+    "category": "金融",
+    "description": "ABS投資家への元本・利息の払出",
+    "timing_hint": "毎期",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "time",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK40",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK38",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK39",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ],
+    "period_days": 90
+  },
+  {
+    "id": "EV108",
+    "name": "早期完済・一括弁済",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "残債の一括返済と担保解除",
+    "timing_hint": "中途解約時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": true,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "regulatory_change": true,
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK10",
+        "role": "受益",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      }
+    ]
+  },
+  {
+    "id": "EV109",
+    "name": "バルーン到来",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "金融",
+    "description": "残価設定型契約の満了時清算",
+    "timing_hint": "契約満了時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV110",
+    "name": "残価中間見直し",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "市場変動を踏まえた残価再評価",
+    "timing_hint": "市況変動時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "確認",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK39",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV111",
+    "name": "全損認定",
+    "name_en": "",
+    "phase_label": "1〜15年",
+    "category": "保険",
+    "description": "保険会社による全損宣告",
+    "timing_hint": "事故査定完了時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": true,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": true
+    },
+    "trigger_type": "probabilistic",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "value_revaluation": true,
+      "financial_change": true,
+      "data_emit": true,
+      "irreversible": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK11",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK14",
+        "role": "確認",
+        "layer": "L3"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK45",
+        "role": "受益",
+        "layer": "L3"
+      }
+    ],
+    "probability_per_year": 0.012
+  },
+  {
+    "id": "EV112",
+    "name": "バッテリーSoH宣言",
+    "name_en": "",
+    "phase_label": "1〜12年",
+    "category": "データ",
+    "description": "EV電池の健全性測定値の認証宣言",
+    "timing_hint": "測定実施時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": true,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "condition_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK18",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "確認",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "確認",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK47",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV113",
+    "name": "走行距離認証読取",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "データ",
+    "description": "認証済走行距離の読取・記録",
+    "timing_hint": "節目イベント時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK15",
+        "role": "実行",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "実行",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK47",
+        "role": "実行",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV114",
+    "name": "自動車税・重量税納付",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "規制",
+    "description": "保有税・公課の納付",
+    "timing_hint": "毎年",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "time",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life",
+        "EOL"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK22",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ],
+    "period_days": 365
+  },
+  {
+    "id": "EV115",
+    "name": "残価保証契約締結",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "リース・残価設定契約に対する残価保証商品の付帯",
+    "timing_hint": "契約締結時または期中",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK48",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK05",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV116",
+    "name": "残価差額確定",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "金融",
+    "description": "市場価格と保証価格の差額を確定",
+    "timing_hint": "契約満了・返却査定後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK48",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK05",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV117",
+    "name": "残価差額補填",
+    "name_en": "",
+    "phase_label": "2〜5年",
+    "category": "金融",
+    "description": "保証提供者から差額を精算・補填",
+    "timing_hint": "差額確定後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "cascade",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK48",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK05",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV118",
+    "name": "メンテナンスパック契約",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "定期整備・消耗品交換のパッケージ商品付帯",
+    "timing_hint": "契約時または期中",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK13",
+        "role": "受益",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV119",
+    "name": "延長保証契約",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "金融",
+    "description": "メーカー保証期間後の保証延長商品付帯",
+    "timing_hint": "契約時または保証満了前",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK48",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV120",
+    "name": "ディーラーフロアプラン与信実行",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "在庫車両に対するフロアプラン融資の実行・更新",
+    "timing_hint": "在庫到着時から販売まで",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK10",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "対象",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK01",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV121",
+    "name": "ディーラーインセンティブ精算",
+    "name_en": "",
+    "phase_label": "0〜1年",
+    "category": "金融",
+    "description": "メーカーからディーラーへの販促インセンティブの計算・支払",
+    "timing_hint": "販売達成時または四半期",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "cascade",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK01",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "実行",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK03",
+        "role": "受益",
+        "layer": "L2"
+      }
+    ]
+  },
+  {
+    "id": "EV122",
+    "name": "延滞督促",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "電話・書面・接触による延滞督促",
+    "timing_hint": "延滞発生後の各段階",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK40",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK44",
+        "role": "実行",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV123",
+    "name": "法的回収手続",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "訴訟・差押え・強制執行等の法的措置",
+    "timing_hint": "督促奏功せず長期化時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK50",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK21",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK23",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "責任",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "責任",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV124",
+    "name": "引揚後販路判定",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "引揚車両の処分ルート(オークション/輸出/小売/廃車)決定",
+    "timing_hint": "引揚車両の評価後",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": true,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "value_revaluation": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK40",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK27",
+        "role": "確認",
+        "layer": "L5"
+      },
+      {
+        "stakeholder_id": "STK26",
+        "role": "対象",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK04",
+        "role": "対象",
+        "layer": "L4"
+      },
+      {
+        "stakeholder_id": "STK30",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV125",
+    "name": "PF適格性審査・onboarding",
+    "name_en": "",
+    "phase_label": "0〜3年",
+    "category": "データ",
+    "description": "配車PF・物流PFへの参画にあたる車両・運行者の審査・登録",
+    "timing_hint": "PF参画時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract",
+        "Used_Market",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK43",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK11",
+        "role": "確認",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "確認",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK49",
+        "role": "実行",
+        "layer": "L1"
+      }
+    ]
+  },
+  {
+    "id": "EV126",
+    "name": "PF売上精算",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "金融",
+    "description": "PF経由売上の運行事業者への精算",
+    "timing_hint": "週次・月次",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": false,
+      "不可逆": false
+    },
+    "trigger_type": "time",
+    "actionable": false,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK43",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "受益",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "受益",
+        "layer": "L6"
+      }
+    ],
+    "period_days": 7
+  },
+  {
+    "id": "EV127",
+    "name": "PFスコア低下による稼働制限",
+    "name_en": "",
+    "phase_label": "0〜15年",
+    "category": "運行",
+    "description": "評価・スコア低下による稼働範囲制限・アカウント制限",
+    "timing_hint": "スコア閾値下回り時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": false,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "In_Use",
+        "Cross_Border",
+        "Late_Life"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK43",
+        "role": "起点",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK02",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  },
+  {
+    "id": "EV128",
+    "name": "PFデータ連動金融条件見直し",
+    "name_en": "",
+    "phase_label": "1〜4年",
+    "category": "金融",
+    "description": "PF稼働データを用いた金融条件の動的調整・再設定",
+    "timing_hint": "定期見直し時",
+    "state_changes": {
+      "所有": false,
+      "占有": false,
+      "状態": false,
+      "価値": false,
+      "規制": false,
+      "債務": true,
+      "データ": true,
+      "不可逆": false
+    },
+    "trigger_type": "choice",
+    "actionable": true,
+    "preconditions": {
+      "phase_in": [
+        "Origination",
+        "In_Use",
+        "Post_Contract"
+      ],
+      "min_age_days": 0,
+      "requires_state": {}
+    },
+    "postconditions": {
+      "financial_change": true,
+      "data_emit": true
+    },
+    "stakeholders": [
+      {
+        "stakeholder_id": "STK02",
+        "role": "起点",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK43",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK19",
+        "role": "確認",
+        "layer": "L2"
+      },
+      {
+        "stakeholder_id": "STK49",
+        "role": "実行",
+        "layer": "L1"
+      },
+      {
+        "stakeholder_id": "STK08",
+        "role": "対象",
+        "layer": "L6"
+      },
+      {
+        "stakeholder_id": "STK09",
+        "role": "対象",
+        "layer": "L6"
+      }
+    ]
+  }
+]

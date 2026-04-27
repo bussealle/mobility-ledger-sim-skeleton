@@ -1,0 +1,149 @@
+{
+  "scenarios": [
+    {
+      "id": "default-japan-2026",
+      "name": "日本標準2026",
+      "description": "国内市場の標準的な乗用車ライフサイクル。個人保有・残価設定ローン・国内転売・最終的に輸出または廃車",
+      "market": {
+        "country": "JP",
+        "currency": "JPY",
+        "regulatory_regime": "JP_standard"
+      },
+      "vehicle_template": {
+        "type": "passenger",
+        "powertrain": "ICE",
+        "msrp": 3500000,
+        "expected_lifetime_years": 15
+      },
+      "user_template": {
+        "primary_holder": "STK08",
+        "expected_role": "private_owner"
+      },
+      "probability_modifiers": {
+        "EV025_minor_accident": 1.0,
+        "EV032_payment_default": 1.0,
+        "EV065_export_buyer": 0.4
+      },
+      "value_curve": "standard_jp_passenger",
+      "narrative_hint": "新車を残価設定ローンで購入。3〜5年で買換えサイクル、その後中古市場で流通"
+    },
+    {
+      "id": "ev-private-lease",
+      "name": "個人EVリース",
+      "description": "個人がBEVをリース契約で利用。SoH管理・バッテリー保証・残価リスクが論点",
+      "market": {
+        "country": "JP",
+        "currency": "JPY",
+        "regulatory_regime": "JP_standard"
+      },
+      "vehicle_template": {
+        "type": "passenger",
+        "powertrain": "BEV",
+        "msrp": 5500000,
+        "expected_lifetime_years": 12,
+        "battery_capacity_kwh": 60
+      },
+      "user_template": {
+        "primary_holder": "STK08",
+        "expected_role": "private_lessee",
+        "contract_type": "lease_with_residual"
+      },
+      "probability_modifiers": {
+        "EV059_battery_module_replace": 1.5,
+        "EV112_soh_declaration": 2.0,
+        "EV029_battery_health_check": 2.0
+      },
+      "value_curve": "ev_steep_decline",
+      "narrative_hint": "残価設定が市況依存で大きく変動するシナリオ。SoH宣言とアテステーション設計が機会領域"
+    },
+    {
+      "id": "fleet-rideshare",
+      "name": "ライドシェア・フリート",
+      "description": "配車PFに供給される車両。高稼働・短ライフ・PFスコア依存",
+      "market": {
+        "country": "JP",
+        "currency": "JPY",
+        "regulatory_regime": "JP_standard"
+      },
+      "vehicle_template": {
+        "type": "passenger",
+        "powertrain": "HEV",
+        "msrp": 3000000,
+        "expected_lifetime_years": 6
+      },
+      "user_template": {
+        "primary_holder": "STK07",
+        "operator": "STK43",
+        "expected_role": "rideshare_fleet",
+        "contract_type": "operator_lease"
+      },
+      "probability_modifiers": {
+        "EV019_periodic_maintenance": 3.0,
+        "EV055_high_mileage_commercial": 2.0,
+        "EV025_minor_accident": 1.5,
+        "EV127_pf_score_restriction": 1.0
+      },
+      "value_curve": "fleet_high_mileage",
+      "narrative_hint": "PF経済圏に組み込まれた車両。データ連動金融・売上連動返済の可能性領域"
+    },
+    {
+      "id": "ev-asean-export",
+      "name": "EV ASEAN輸出",
+      "description": "国内3〜5年使用後、ASEAN圏に輸出される長尾シナリオ。越境とSoH宣言が肝",
+      "market": {
+        "country": "JP→SG/MY/TH",
+        "currency": "JPY/USD",
+        "regulatory_regime": "Cross_Border"
+      },
+      "vehicle_template": {
+        "type": "passenger",
+        "powertrain": "BEV",
+        "msrp": 4500000,
+        "expected_lifetime_years": 12
+      },
+      "user_template": {
+        "primary_holder": "STK08",
+        "expected_role": "private_then_export",
+        "contract_type": "purchase_then_resale"
+      },
+      "probability_modifiers": {
+        "EV065_export_buyer": 3.0,
+        "EV066_export_inspection": 3.0,
+        "EV072_overseas_long_use": 2.0,
+        "EV112_soh_declaration": 2.5
+      },
+      "value_curve": "export_extended",
+      "narrative_hint": "MON/MOAの仮想ターゲット。越境後のアテステーション継承が論点"
+    },
+    {
+      "id": "company-car-lease",
+      "name": "法人社用車リース",
+      "description": "法人が複数台を一括リース。会計・税・福利厚生制度との相互作用",
+      "market": {
+        "country": "JP",
+        "currency": "JPY",
+        "regulatory_regime": "JP_standard"
+      },
+      "vehicle_template": {
+        "type": "passenger",
+        "powertrain": "ICE",
+        "msrp": 4000000,
+        "expected_lifetime_years": 5
+      },
+      "user_template": {
+        "primary_holder": "STK09",
+        "operator": "STK41",
+        "expected_role": "corporate_fleet",
+        "contract_type": "corporate_lease"
+      },
+      "probability_modifiers": {
+        "EV041_fleet_relocation": 1.5,
+        "EV077_benefit_relocation": 1.0,
+        "EV019_periodic_maintenance": 1.5
+      },
+      "value_curve": "corporate_disciplined",
+      "narrative_hint": "残価リスクは法人持ち。フリート全体での組成・解約・更新サイクル"
+    }
+  ],
+  "default_scenario": "default-japan-2026"
+}
